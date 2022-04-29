@@ -1,0 +1,43 @@
+﻿@page
+@model Opa21_A_Csharp_Assignment.Pages.StudentInfo.StudentPageModel
+@{
+}
+
+
+
+<p> All your enrolled classes</p>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">
+                <label>Class Name</label>
+            </th>
+            <th scope="col">
+                <label>Class Location</label>
+            </th>
+            <th scope="col">
+                <label>Teacher Name</label>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model.studentCourseList)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(variable => course.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(variable => course.Location)
+            </td>
+            <form method="post">
+                <td>
+                    <button class="btn btn-danger" asp-page-handler="Quit" asp-route-id="@course.CourseId">Quit Course</button>
+                </td>
+            </form>
+        </tr>
+        }
+    </tbody>
+</table>

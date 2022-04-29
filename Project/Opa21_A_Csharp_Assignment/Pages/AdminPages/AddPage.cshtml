@@ -1,0 +1,27 @@
+﻿@page
+@model Opa21_A_Csharp_Assignment.Pages.AdminPages.AddPageModel
+@{
+}
+
+
+
+
+<h2>Add a new course</h2>
+
+<form method="post">
+    <div>
+        <label asp-for="Course.Name"></label>
+        <input asp-for="Course.Name" placeholder="ex. Math 101" />
+    </div>
+    <div>
+        <label asp-for="Course.Location"></label>
+        <input asp-for="Course.Location" placeholder="ex. A101" />
+    </div>
+    <input type="submit" value="submit" asp-page-handler="AddCourse" />
+</form>
+
+<div>
+    <a href="/AdminPages/EditCourses">Go back</a>
+</div>
+
+

@@ -1,0 +1,52 @@
+﻿@page
+@model Opa21_A_Csharp_Assignment.Pages.AdminPages.EditCoursesModel
+@{
+}
+
+
+<h2>Add, Edit and Delete courses</h2>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">
+                <label asp-for="courseList.FirstOrDefault().Name"></label>
+            </th>
+            <th scope="col">
+                <label asp-for="courseList.FirstOrDefault().Location"></label>
+            </th>
+            <th scope="col">
+                <label></label>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model.courseList)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(variable => course.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(variable => course.Location)
+            </td>
+            <td>
+                <a asp-route-id="@course.CourseId" asp-page="/AdminPages/Editpage">Edit Course</a>
+            </td>
+            <form method="post">
+            <td>
+                <button class="btn btn-danger" asp-page-handler="Delete" asp-route-id="@course.CourseId" onclick="return confirm('are you sure?')">Delete</button>
+            </td>
+            </form>
+
+        </tr>
+        }
+        <tr>
+            <td>
+                <a asp-route-type="admin" asp-page="/AdminPages/AddPage">Add New Course</a>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,43 @@
+﻿@page
+@model Opa21_A_Csharp_Assignment.Pages.TeacherPages.TeacherClassesModel
+@{
+}
+
+
+<h2>Pick a class to teach</h2>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">
+                <label asp-for="notTeachingCourses.FirstOrDefault().Name"></label>
+            </th>
+            <th scope="col">
+                <label asp-for="notTeachingCourses.FirstOrDefault().Location"></label>
+            </th>
+            <th scope="col">
+                <label></label>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model.notTeachingCourses)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(variable => course.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(variable => course.Location)
+                </td>
+                <form method="post">
+                <td>
+                    <button class="btn btn-success" asp-page-handler="Teach" asp-route-id="@course.CourseId">Teach class</button>
+                </td>
+                </form>
+
+            </tr>
+        }
+    </tbody>
+</table>

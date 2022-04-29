@@ -1,0 +1,32 @@
+﻿@page
+@model Opa21_A_Csharp_Assignment.Pages.AdminPages.EditPageModel
+@{
+}
+
+
+
+
+
+
+
+
+    <h2>Edit course</h2>
+
+    <form method="post">
+        <input type="hidden" asp-for="course.CourseId" />
+        <div asp-validation-summary="ModelOnly" ></div>
+        <div>
+            <label asp-for="course.Name"></label>
+            <input asp-for="course.Name" placeholder="ex. Math 101" />
+        </div>
+        <div>
+            <label asp-for="course.Location"></label>
+            <input asp-for="course.Location" placeholder="ex. A101" />
+        </div>
+        <input type="submit" value="submit" asp-page-handler="EditCourse" />
+    </form>
+
+    <div>
+        <a href="/AdminPages/EditCourses">Go back</a>
+    </div>
+
